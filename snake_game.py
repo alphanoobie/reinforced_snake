@@ -18,7 +18,7 @@ class Direction(Enum):
 Point = namedtuple("Point", "x, y")
 
 BLOCK_SIZE = 20
-SPEED = 40
+SPEED = 5
 WHITE = (255, 255, 255)
 RED = (200, 0, 0)
 BLUE1 = (0, 0, 255)
@@ -61,22 +61,29 @@ class SnakeGame:
                 pygame.quit()
                 quit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_a:
                     self.direction = Direction.LEFT
-                elif event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_d:
                     self.direction = Direction.RIGHT
-                elif event.key == pygame.K_UP:
+                elif event.key == pygame.K_w:
                     self.direction = Direction.UP
-                elif event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_s:
                     self.direction = Direction.DOWN
         # move
         self._move(self.direction)
         self.snake.insert(0, self.head)
         # check game over
         game_over = False
-        if self._is_collision(self):
+        if self._is_collision():
             game_over = True
             return game_over, self.score
+        # place new food and move
+        if self.head == self.food:
+            self.score += 1
+            self._placefood()
+        else:
+            self.snake.pop()
+
         # update ui
         self._update_ui()
         self.clock.tick(SPEED)
@@ -87,7 +94,7 @@ class SnakeGame:
         # boundary
         if (
             self.head.x > self.w - BLOCK_SIZE
-            or self.x.head < 0
+            or self.head.x < 0
             or self.head.y > self.h - BLOCK_SIZE
             or self.head.y < 0
         ):
