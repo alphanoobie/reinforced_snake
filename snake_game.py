@@ -58,8 +58,15 @@ class SnakeGame:
             self._placefood()
 
     def play_step(self):
+        # collect user input
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        # update ui
         self._update_ui()
         self.clock.tick(SPEED)
+        # return gameover and score
         game_over = False
         return game_over, self.score
 
@@ -70,7 +77,9 @@ class SnakeGame:
             pygame.draw.rect(
                 self.display, BLUE1, pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE)
             )
-            pygame.draw.rect(self.display, BLUE2, pygame.Rect(pt.x + 4, pt.y + 4, 12, 12))
+            pygame.draw.rect(
+                self.display, BLUE2, pygame.Rect(pt.x + 4, pt.y + 4, 12, 12)
+            )
 
         pygame.draw.rect(
             self.display,
