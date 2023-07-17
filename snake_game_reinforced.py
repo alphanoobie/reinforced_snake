@@ -19,7 +19,7 @@ class Direction(Enum):
 Point = namedtuple("Point", "x, y")
 
 BLOCK_SIZE = 20
-SPEED = 5
+SPEED = 100
 WHITE = (255, 255, 255)
 RED = (200, 0, 0)
 BLUE1 = (0, 0, 255)
@@ -35,7 +35,7 @@ class SnakeGameAI:
         self.display = pygame.display.set_mode((self.w, self.h))
         pygame.display.set_caption("Saaaaaaanp🐍")
         self.clock = pygame.time.Clock()
-        self.reset()
+        self._reset()
 
     def _reset(self):
         # initial game state
