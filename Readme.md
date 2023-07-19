@@ -1,13 +1,17 @@
-Following these tutorials to create a snake game and implementing reinforcement learning on it\
-\
-https://youtu.be/--nsd2ZeYvs  \
-https://youtu.be/L8ypSXwyBds  \
-\
-\
-\
-\
-\
-\
-\
-\
-Might write a detailed readme later!
+           /^\/^\
+         _|__|  O|
+\/     /~     \_/ \
+ \____|__________/  \
+        \_______      \
+                `\     \                 \
+                  |     |                  \
+                 /      /                    \
+                /     /                       \\
+              /      /                         \ \
+             /     /                            \  \
+           /     /             _----_            \   \
+          /     /           _-~      ~-_         |   |
+         (      (        _-~    _--_    ~-_     _/   |
+          \      ~-____-~    _-~    ~-_    ~-_-~    /
+            ~-_           _-~          ~-_       _-~
+               ~--______-~                ~-___-~
